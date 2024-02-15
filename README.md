@@ -3,8 +3,8 @@ Toy ECS that improves performance by optimizing cache lines to not miss.
 
 ## Features
 - Scenes
-- Entity ID
-- Components (Max 255)
+- Entity ID, (Max 10'000, can be modified)
+- Components (Max 32, can be modified)
   - Contiguous storage of components (cache optimization) via component pooling
   - User can register their own components
  
