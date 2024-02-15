@@ -1,5 +1,5 @@
 # CustomECS
-Toy ECS that improves performance by optimizing cache lines to not miss.
+Toy ECS that improves performance by optimizing cache lines and preventing cache misses
 
 ## Features
 - Scenes
