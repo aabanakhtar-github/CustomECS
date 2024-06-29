@@ -1,11 +1,30 @@
 # CustomECS
-Toy ECS that improves performance by optimizing cache lines and preventing cache misses
+Toy ECS that improves performance by optimizing cache lines and preventing cache misses. Based on the framework by Austin Morlan.
 
-## Features
-- Scenes
-- Entity ID, (Max 10'000, can be modified)
-- Components (Max 32, can be modified)
-  - Contiguous storage of components (cache optimization) via component pooling
-  - User can register their own components
- 
-- Convenience Macros like *DECLARE_MEMBER_AND_ACCESSOR()*
+## Example
+```C++
+// define a component
+struct pos_component : ECS::ComponentBase {
+  float x, y; 
+};
+
+// make the game scene and register components
+ECS::Scene scene;
+scene.registerComponent<pos_component>();
+
+// create an entity
+ECS::EntityID entity = scene.createEntity();
+scene.addComponent<pos_component>(entity) = {
+  .x = 0, .y = 10
+};
+
+// "system"
+SceneView<pos_component> view;
+for (auto ID : view.getEntities()) {
+  auto& pos = scene.getComponent<pos_component>(ID);
+
+  // do some operations
+  pos.x += 3;
+  pos.y += 5; 
+}
+```
