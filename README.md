@@ -19,7 +19,7 @@ scene.addComponent<pos_component>(entity) = {
 };
 
 // "system"
-SceneView<pos_component> view;
+SceneView<pos_component> view(scene);
 for (auto ID : view.getEntities()) {
   auto& pos = scene.getComponent<pos_component>(ID);
 
