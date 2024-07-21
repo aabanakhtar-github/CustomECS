@@ -1,5 +1,5 @@
 # CustomECS
-Toy ECS that improves performance by optimizing cache lines and preventing cache misses. Based on the framework by Austin Morlan.
+Toy ECS that improves performance by optimizing cache lines and preventing cache misses. Based on the framework by Austin Molan.
 
 ## Example
 ```C++
